@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include <QUrl>
 
+#include "gpiohandler.h"
 #include "jsonmanager.h"
 #include "canmanager.h"
 
@@ -15,6 +16,14 @@ int main(int argc, char *argv[])
     JSONmanager json;
 
     CANmanager canBus;
+
+    GPIOhandler gpioHandler;
+
+    engine.rootContext()->setContextProperty("gpioHandler", &gpioHandler);
+    engine.load(QStringLiteral("qrc:/Main.qml"));
+    if (engine.rootObjects().isEmpty())
+        return -1;
+
     canBus.updatePayload(CANmanager::FRONTBIAS, json.getBiasVal());
     canBus.updatePayload(CANmanager::TCSWITCH, json.getTractionSwitch());
     canBus.sendOnce();

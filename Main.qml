@@ -1095,8 +1095,67 @@ Window
     {
         focus: true
 
+        property int BUTTON_RIGHT: 26
+        property int BUTTON_LEFT: 25
+        property int BUTTON_UP: 24
+        property int BUTTON_DOWHN: 23
+
+
+
+        Connections
+        {
+            target: gpioHandler
+            onButtonPressed: (buttonId) =>
+            {
+                swith (buttonId)
+                {
+                case BUTTON_RIGHT:
+                    handleRightPress()
+                    break
+                case BUTTON_LEFT:
+                    handleLeftPress()
+                    break
+                case BUTTON_UP:
+                    handleUpPress()
+                    break
+                case BUTTON_DOWN:
+                    handleDownPress()
+                    break
+                }
+            }
+        }
+
+
+
         Keys.onPressed: (event) =>
         {
+            switch (event.key)
+            {
+            case Qt.Key_Right:
+                handleRightPress()
+                break
+            case Qt.Key_Left:
+                handleLeftPress()
+                break
+            case Qt.Key_Up:
+                handleUpPress()
+                break
+            case Qt.Key_Down:
+                handleDownPress()
+                break
+            default:
+                // Possibly handle Escape, Q, etc. the same as you do now
+                if (event.key === Qt.Key_Escape) {
+                    close()
+                } else if (event.key === Qt.Key_Q) {
+                    close()
+                }
+                break
+            }
+        }
+
+
+        function handleRightPress() {
             if (event.key === Qt.Key_Right)
             {
                 if(columnBar.x < 0)
@@ -1241,10 +1300,23 @@ Window
                     currentSet = 1
                     launchControlImage.visible = false
                 }
-
-
             }
-            else if(event.key === Qt.Key_Left)
+
+            console.log("RIGHT pressed (key or hardware)")
+
+        }
+
+
+
+
+
+
+
+
+
+
+        function handleLeftPress() {
+            if(event.key === Qt.Key_Left)
             {
                 if(counter >= 0 && counter <= 4 && engineInfoScreen.visible === false && brakeBiasScreen.visible === false && tractionControlScreen.visible === false)
                 {
@@ -1334,11 +1406,19 @@ Window
                 {
                     counter = counter - 1
                 }
-
-
-
             }
-            else if(event.key === Qt.Key_Down)
+             console.log("LEFT pressed (key or hardware)")
+        }
+
+
+
+
+
+
+
+
+        function handleDownPress() {
+            if(event.key === Qt.Key_Down)
             {
                 counter = counter + 1
 
@@ -1379,9 +1459,13 @@ Window
                     counter = 6
                 }
 
-
             }
-            else if(event.key === Qt.Key_Up)
+            console.log("DOWN pressed (key or hardware)")
+        }
+
+
+        function handleUpPress() {
+            if(event.key === Qt.Key_Up)
             {
                 counter = counter - 1
 
@@ -1419,7 +1503,14 @@ Window
                     counter = 8
                 }
             }
-            else if(event.key === Qt.Key_Escape)
+            console.log("UP pressed (key or hardware)")
+        }
+    }
+
+
+        /**
+
+        else if(event.key === Qt.Key_Escape)
             {
                 close()
             }
@@ -1449,8 +1540,9 @@ Window
             else if (event.key === Qt.Key_P) {
                 shutdownHandler.powerOFF()
             }
-        }
     }
+
+    **/
 
     function loadingDone() {
         root.loadingComplete = true

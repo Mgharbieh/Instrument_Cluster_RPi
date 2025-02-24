@@ -12,6 +12,7 @@ public:
     explicit GPIOhandler(QObject *parent = nullptr);
 
 signals:
+    void buttonPressed(int buttonId);
 };
 
 #endif // GPIOHANDLER_H
