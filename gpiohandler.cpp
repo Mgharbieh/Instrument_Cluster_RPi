@@ -148,7 +148,7 @@ void GPIOhandler::pressLC()
 
 void GPIOhandler::powerOff()
 {
-    delay(2500); //2.5s
+    delay(1000); //1s
     if(digitalRead(POWER_PIN) == LOW)
     {
         emit InterruptPtr->powerDown();
