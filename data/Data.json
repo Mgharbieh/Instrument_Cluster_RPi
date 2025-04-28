@@ -1,0 +1,73 @@
+{
+    "Drivers": [
+        {
+            "Bias": 69,
+            "DriverNo": 1,
+            "ID": "Driver 1",
+            "antiLagSwitch": 1,
+            "fuelAim": false,
+            "ignitionTiming": true,
+            "launchAim": 10,
+            "tcSwitch": 10,
+            "throttleMap": false
+        },
+        {
+            "Bias": 40,
+            "DriverNo": 2,
+            "ID": "Driver 2",
+            "antiLagSwitch": 3,
+            "fuelAim": false,
+            "ignitionTiming": true,
+            "launchAim": 7,
+            "tcSwitch": 4,
+            "throttleMap": false
+        },
+        {
+            "Bias": 60,
+            "DriverNo": 3,
+            "ID": "Driver 3",
+            "antiLagSwitch": 6,
+            "fuelAim": false,
+            "ignitionTiming": false,
+            "launchAim": 1,
+            "tcSwitch": 9,
+            "throttleMap": false
+        },
+        {
+            "Bias": 50,
+            "DriverNo": 4,
+            "ID": "Driver 4",
+            "antiLagSwitch": 10,
+            "fuelAim": false,
+            "ignitionTiming": false,
+            "launchAim": 4,
+            "tcSwitch": 1,
+            "throttleMap": false
+        },
+        {
+            "Bias": 45,
+            "DriverNo": 5,
+            "ID": "Driver 5",
+            "antiLagSwitch": 10,
+            "fuelAim": false,
+            "ignitionTiming": false,
+            "launchAim": 4,
+            "tcSwitch": 1,
+            "throttleMap": false
+        },
+        {
+            "Bias": 50,
+            "DriverNo": 6,
+            "ID": "Driver 6",
+            "antiLagSwitch": 10,
+            "fuelAim": true,
+            "ignitionTiming": true,
+            "launchAim": 4,
+            "tcSwitch": 1,
+            "throttleMap": true
+        }
+    ],
+    "LastDriver": {
+        "LastDriver": 1
+    }
+}
